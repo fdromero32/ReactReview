@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 
 import MyInfo from './components/Index'
 
+import 'styles.css'
+
 
 class Basic extends Component {
   render(){
