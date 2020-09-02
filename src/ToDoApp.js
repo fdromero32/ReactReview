@@ -1,40 +1,37 @@
-import React from "react";
-
-class TodoItem extends React.Component {
-  render() {
-    return (
-      <div className="todo-item">
-        <input type="checkbox" checked={this.props.completed} />
-        <p>{this.props.text}</p>
-      </div>
-    );
-  }
-}
-
-export default TodoItem;
-
 import React, { Component } from "react";
-import TodoItem from "./TodoItem";
-import todosData from "./todosData";
+import TodoItem from "./ToDoItem";
+import todosData from "./ToDoData";
 
 class App extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       loadedData: todosData,
     };
   }
 
+  newChange = (id) => {
+    const update = this.state.loadedData.map((todo) => {
+      if (todo.id === id) {
+        todo.completed = !todo.completed;
+      }
+      return todo;
+    });
+    console.log(update);
+    this.setState({ loadedData: update });
+  };
+
   render() {
-    let todoComponent = this.state.loadedData.map((item) => (
-      <TodoItem key={item.id} text={item.text} completed={item.completed} />
+    const todoComponent = this.state.loadedData.map((item) => (
+      <TodoItem
+        key={item.id}
+        text={item.text}
+        completed={item.completed}
+        newChange={this.newChange}
+      />
     ));
 
-    return (
-      <div className="todo-list">
-        {todoComponent}
-      </div>
-    );
+    return <div className="todo-list">{todoComponent}</div>;
   }
 }
 

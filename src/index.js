@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-import MyInfo from './components/Index'
+import App from './ToDoApp'
 
-import 'styles.css'
+import './styles.css'
 
 
 class Basic extends Component {
   render(){
     return (
       <>
-        <MyInfo />
+        <App />
       </>
     )
   }
 }
 
 export default Basic
+
 ReactDOM.render(
     <Basic/>,
   document.getElementById('root')
