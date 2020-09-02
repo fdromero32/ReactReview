@@ -1,30 +1,41 @@
-import React from "react"
+import React from "react";
 
-function TodoItem(props) {
+class TodoItem extends React.Component {
+  render() {
     return (
-        <div className="todo-item">
-            <input type="checkbox" checked={props.completed} />
-            <p>{props.text}</p>
-        </div>
-    )
+      <div className="todo-item">
+        <input type="checkbox" checked={this.props.completed} />
+        <p>{this.props.text}</p>
+      </div>
+    );
+  }
 }
 
-export default TodoItem
+export default TodoItem;
 
-import React from "react"
-import TodoItem from "./TodoItem"
-import todosData from "./todosData"
+import React, { Component } from "react";
+import TodoItem from "./TodoItem";
+import todosData from "./todosData";
 
-function App() {
-    const todoComponent = todosData.map((item) => 
-        <TodoItem key={item.id} text={item.text} completed={item.completed} />
-    )
-    
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      loadedData: todosData,
+    };
+  }
+
+  render() {
+    let todoComponent = this.state.loadedData.map((item) => (
+      <TodoItem key={item.id} text={item.text} completed={item.completed} />
+    ));
+
     return (
-        <div className="todo-list">
-            {todoComponent}
-        </div>
-    )
+      <div className="todo-list">
+        {todoComponent}
+      </div>
+    );
+  }
 }
 
-export default App
+export default App;
