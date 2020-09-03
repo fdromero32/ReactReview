@@ -10,14 +10,13 @@ class App extends Component {
     };
   }
 
-  newChange = (id) => {
+  handleChange = (id) => {
     const update = this.state.loadedData.map((todo) => {
       if (todo.id === id) {
         todo.completed = !todo.completed;
       }
       return todo;
     });
-    console.log(update);
     this.setState({ loadedData: update });
   };
 
@@ -25,9 +24,10 @@ class App extends Component {
     const todoComponent = this.state.loadedData.map((item) => (
       <TodoItem
         key={item.id}
+        id={item.id}
         text={item.text}
         completed={item.completed}
-        newChange={this.newChange}
+        handleChange={this.handleChange}
       />
     ));
 
