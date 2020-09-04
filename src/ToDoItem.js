@@ -9,7 +9,12 @@ class TodoItem extends React.Component {
           checked={this.props.completed}
           onChange={() => this.props.handleChange(this.props.id)}
         />
-        <p>{this.props.text}</p>
+        {this.props.completed && (
+          <p style={{ textDecoration: "line-through" }}>{this.props.text}</p>
+        )}
+        {!this.props.completed && (
+          <p style={{ color: "green" }}>{this.props.text}</p>
+        )}
       </div>
     );
   }
