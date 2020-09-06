@@ -55,7 +55,7 @@ class App extends Component {
             name="isFriendly"
             checked={this.state.isFriendly}
             onChange={this.handleChange}
-          />{" "}
+          />
           Is friendly?
         </label>
         <br />
@@ -77,7 +77,7 @@ class App extends Component {
             value="female"
             checked={this.state.gender === "female"}
             onChange={this.handleChange}
-          />{" "}
+          />
           Female
         </label>
         {/* Formik */}
