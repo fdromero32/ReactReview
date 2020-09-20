@@ -62,10 +62,18 @@ class UserContextProvider extends Component {
   };
 
   toggleTheme = () => {
-    this.state.theme === "dark"
-      ? this.setState({ theme: "light" })
-      : this.setState({ theme: "dark" });
+    this.state.theme === "light"
+      ? this.setState({ theme: "dark" })
+      : this.setState({ theme: "light" });
   };
+
+  // toggleTheme = () => {
+  //   this.setState(prevState => {
+  //       return {
+  //           theme: prevState.theme === "light" ? "dark" : "light"
+  //       }
+  //   })
+  // }
 
   render() {
     return <Provider value={this.state.theme}>{this.props.children}</Provider>;
