@@ -57,6 +57,7 @@ export default App;
 // Services.js
 
 import React from "react";
+import { Link } from 'react-router-dom'
 import ServiceData from "./ServiceData";
 
 function Services() {
@@ -64,7 +65,7 @@ function Services() {
     <div>
       <h1 key={item._id}>
         {/* forgot to add Link to the specific item being linked */}
-        <Link to={`/services/${services._id}`}>
+        <Link to={`/services/${item._id}`}>
         {item.name}
         </Link></h1>
       <h2>{item.price}</h2>
@@ -79,10 +80,12 @@ export default Services;
 import React from "react";
 import { useParams } from "react-router-dom";
 
+import ServiceData from "./ServiceData";
+
 function ServiceDetails(props) {
   const { serviceId } = useParams();
-
-  const thisService = servicesData.find((service) => service._id === serviceId);
+  // forgot to put correct method to find serviceId from params. Correct method is below:
+  const thisService = ServicesData.find((service) => service._id === serviceId);
 
   return (
     <div>
