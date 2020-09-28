@@ -80,7 +80,7 @@ import ProductsData from "./productsData";
 
 function ProductDetail() {
   const { productId } = useParams();
-  const singleProduct = ProductsData.find((product) => product.id == productId);
+  const singleProduct = ProductsData.find((product) => product.id === productId);
 
   return (
     <>
